@@ -1,0 +1,122 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Maintenance" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-card>
+        <div class="card-header">
+            <fa-icon class="mr-1" [icon]='["fas", "calendar-alt"]'></fa-icon>Maintenance
+        </div>
+        <div class="card-body">
+
+            <ngb-alert  *ngIf="outcomeBadge"
+                        [type]="outcomeBadge.success ? 'success' : 'danger'"
+            >
+                {{ outcomeBadge.message }}
+            </ngb-alert>
+
+            <strong>Updates / Backups</strong>
+            <hr>
+            <div class="row spaced">
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="updateServer(validateServerUpdate.value)">
+                        Update Server
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <label for="validate-server-update" class="mr-1">
+                            Validate?
+                        </label>
+                        <input #validateServerUpdate id="validate-server-update" type="checkbox" [value]="true">
+                    </div>
+                </div>
+            </div>
+            <div class="row spaced">
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="updateMods(validateModUpdate.value, forceModUpdate.value)">
+                        Update Mods
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <label for="validate-mod-update" class="mr-1">
+                            Validate?
+                        </label>
+                        <input #validateModUpdate id="validate-mod-update" type="checkbox" [value]="true">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div title="Disables mod meta data checks and always triggers mod update.">
+                        <label for="force-mod-update" class="mr-1">
+                            Force?
+                        </label>
+                        <input #forceModUpdate id="force-mod-update" type="checkbox" [value]="false">
+                    </div>
+                </div>
+            </div>
+            <div class="row spaced">
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="createBackup()">
+                        Create Backup
+                    </button>
+                </div>
+            </div>
+            <strong>Restarts</strong>
+            <hr>
+            <div class="row spaced">
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="restartServer(false)">
+                        Restart Server
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" title="Kills the server immediately (Use this only when its totally stuck)" (click)="restartServer(true)">
+                        Restart Server (Force)
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" title="Prevents the manager from restarting the server until re-enabled" (click)="lockRestarts()">
+                        Lock Server Restart
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="unlockRestarts()">
+                        UnLock Server Restart
+                    </button>
+                </div>
+            </div>
+            <strong>RCON</strong>
+            <hr>
+            <div class="row spaced">
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="lockServer()">
+                        Lock Server
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="unlockServer()">
+                        UnLock Server
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="kickAll()">
+                        Kick All
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="shutdown()">
+                        Shutdown
+                    </button>
+                </div>
+            </div>
+            <div class="row spaced">
+                <div class="col-md-9">
+                    <input class="form-control form-control" #globalMessageInput>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="sendMessage(globalMessageInput.value); globalMessageInput.value = '';">
+                        Send Global Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </sb-card>
+</sb-layout-dashboard>

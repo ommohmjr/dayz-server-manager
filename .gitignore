@@ -1,0 +1,11 @@
+node_modules
+dist
+tmp
+build
+exec
+exec2
+src/config/config.schema.json
+.actrc
+.nyc_output
+coverage
+*.log

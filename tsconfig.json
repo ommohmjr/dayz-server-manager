@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": false,
+        "outDir": "./dist",
+        "target": "es2015",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "downlevelIteration": true,
+        "skipLibCheck": true,
+        "types": [
+            "node",
+            "mocha",
+            "reflect-metadata"
+        ]
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "**/node_modules",
+        "**/dist"
+    ]
+}

@@ -1,0 +1,21 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Logs" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-card background="h-100">
+        <div class="card-header p-0 log-tabs">
+            <ul class="nav-tabs" [(activeId)]="activeTab" [animation]="false" ngbNav #nav="ngbNav">
+                <li [ngbNavItem]="1" [routerLink]="'rpt'">
+                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>RPT Logs</a>
+                </li>
+                <li [ngbNavItem]="2" [routerLink]="'adm'">
+                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>ADM Logs</a>
+                </li>
+                <li [ngbNavItem]="3" [routerLink]="'script'">
+                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>Script Logs</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body d-flex flex-column p-0 h-100">
+            <router-outlet></router-outlet>
+        </div>
+    </sb-card>
+</sb-layout-dashboard>

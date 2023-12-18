@@ -1,0 +1,57 @@
+$red: #C0392B;
+$red-light: #E74C3C;
+
+$orange: #F39C12;
+$orange-light: #F1C40F;
+
+$green: #27AE60;
+$green-light: #2ECC71;
+
+$blue: #2980B9;
+$blue-light: #3498DB;
+
+$light: #ECF0F1;
+$dark: #212121;
+
+$dark-title-bar: #1f1f1f;
+
+$dark-light: #3c3c3c;
+
+:host {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-bar{
+  padding: 5px;
+  font-weight: 600;
+  display: flex;
+}
+
+.dark-theme.title-bar{
+  border-bottom: solid 1px $dark-light;
+  background: $dark-title-bar ;
+}
+
+.dark-theme {
+
+  color: $light;
+  background: $dark;
+
+  .msg-info {
+    color: $blue-light;
+  }
+
+  .msg-err {
+    color: $red-light;
+  }
+
+  .msg-success {
+    color: $green-light;
+  }
+
+  .msg-warn {
+    color: $orange-light;
+  }
+}
